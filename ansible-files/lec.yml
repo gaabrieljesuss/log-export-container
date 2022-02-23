@@ -14,7 +14,10 @@
       shell: "apt-get install git"
 
     - name: "Clone LEC"
-      shell: "git clone https://github.com/strongdm/log-export-container.git /opt/log-export-container/"
+      shell: "git clone https://github.com/gaabrieljesuss/log-export-container.git /opt/log-export-container/"
+
+    - name: "Checkout branch feat/ansible"
+      shell: "git checkout feat/ansible"
 
     - name: "Change workdir"
       shell: "cd /opt/log-export-container/"
