@@ -1,0 +1,30 @@
+---
+  - name: "Installing Log Export Container with Ansible"
+    hosts: localhost
+    connection: local 
+    vars: 
+      FLUENTD_DIR: fluentd
+
+    tasks:
+
+    - name: "Set sudo"
+      shell: "sudo su"
+
+    - name: "Install Git"
+      shell: "apt-get install git"
+
+    - name: "Clone LEC"
+      shell: "git clone https://github.com/strongdm/log-export-container.git /opt/log-export-container/"
+
+    - name: "Change workdir"
+      shell: "cd /opt/log-export-container/"
+    
+    - name: "Update PATH variable"
+      shell: "export PATH=/home/fluent:$PATH"
+    
+    - name: "Install dependencies"
+      shell: "./ansible-files/install-dependencies.sh"
+    
+    - name: "Start Log Export Container"
+      shell: "./start.sh"
+      
